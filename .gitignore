@@ -1,0 +1,10 @@
+# ignore env, settings and so on
+.env/
+.ipynb_checkpoints/
+.vscode/
+
+# ignore latex temp files
+*.aux
+*.log
+*.gz
+*.toc
