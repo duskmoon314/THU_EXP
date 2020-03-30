@@ -23,6 +23,14 @@
 
 由于部分实验（e.g. 大物实验）给出了 Excel 的例子，便直接采用了。出于某些原因，保留一份`Excel使用指南.md`或是最低需要。
 
+### 对 `tools/themes/Markdown` 部分
+
+用于存放 Markdown 导出 PDF 时候控制主题的 CSS 文件等。
+
+来源：
+
+- https://github.com/CowAndSheep/Beautiful-css
+
 ## TODO
 
 - 加入实验内容
