@@ -10,7 +10,7 @@
 
 目前使用的是 3.7.2，不过除了依赖外，与版本的相关性应不大。
 
-1. clone 本项目到本地，在文件夹中创建 python 的虚拟环境，并安装相关依赖（见`requirements.txt`）
+1. clone 本项目到本地，在文件夹中创建 python 的虚拟环境，并安装相关依赖（见`tools/Python/requirements.txt`）
    可以参考 python 官网的虚拟环境创建，或者使用 conda
 2. 激活虚拟环境，启动 `jupyter notebook`
 3. 在弹出的浏览器窗口查看相关 `notebook`
