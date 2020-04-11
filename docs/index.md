@@ -1,0 +1,17 @@
+## Getting Started
+
+- [Home](https://github.com/duskmoon314/THU_EXP/wiki)
+- [Excel](https://github.com/duskmoon314/THU_EXP/wiki/Excel-Introduction)
+  - [Cheatsheet](https://github.com/duskmoon314/THU_EXP/wiki/Excel-Cheatsheet)
+- [LaTeX](https://github.com/duskmoon314/THU_EXP/wiki/LaTeX-Introduction)
+  - [Install](https://github.com/duskmoon314/THU_EXP/wiki/LaTeX-Install)
+  - [Cheatsheet](https://github.com/duskmoon314/THU_EXP/wiki/LaTeX-Cheatsheet)
+- [Markdown](https://github.com/duskmoon314/THU_EXP/wiki/Markdown-Introduction)
+  - [Install](https://github.com/duskmoon314/THU_EXP/wiki/Markdown-Install)
+  - [Typora](https://github.com/duskmoon314/THU_EXP/wiki/Typora)
+- [Python](https://github.com/duskmoon314/THU_EXP/wiki/Python-Introduction)
+  - [Install](https://github.com/duskmoon314/THU_EXP/wiki/Python-Install)
+  - [Cheatsheet](https://github.com/duskmoon314/THU_EXP/wiki/Python-Cheatsheet)
+- [VSCode](https://github.com/duskmoon314/THU_EXP/wiki/VSCode)
+  - [Verilog Format](https://github.com/duskmoon314/THU_EXP/wiki/Verilog-Format)
+  - [iStyle Formatter](https://github.com/duskmoon314/THU_EXP/wiki/iStyle-Verilog-Formatter)
