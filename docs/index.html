@@ -13,6 +13,7 @@
   </head>
   <body>
     <div id="app"></div>
+    <script src="//unpkg.com/docsify-edit-on-github/index.js"></script>
     <script>
       window.$docsify = {
         name: "THU_EXP",
@@ -22,12 +23,40 @@
         loadSidebar: true,
         maxLevel: 6,
         subMaxLevel: 6,
-        // mergeNavbar: true,
+        mergeNavbar: true,
+        plantuml: {
+          skin: "classic",
+        },
+        plugins: [
+          EditOnGithubPlugin.create(
+            "https://github.com/duskmoon314/THU_EXP/tree/master/docs/"
+          ),
+          function (hook, vm) {
+            const footer = [
+              "<hr/>",
+              "<footer>",
+              "THU_EXP started by duskmoon  ;  Wiki powered by docsify",
+              "</footer>",
+            ].join("");
+
+            hook.afterEach(function (html) {
+              return html + footer;
+            });
+          },
+        ],
       };
     </script>
     <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+    <script src="//unpkg.com/docsify-plantuml/dist/docsify-plantuml.min.js"></script>
     <script src="//unpkg.com/prismjs/components/prism-markdown.js"></script>
     <script src="//unpkg.com/prismjs/components/prism-python.js"></script>
     <script src="//unpkg.com/prismjs/components/prism-latex.js"></script>
+    <!-- CDN files for docsify-katex -->
+    <script src="//cdn.jsdelivr.net/npm/docsify-katex@latest/dist/docsify-katex.js"></script>
+    <!-- or <script src="//cdn.jsdelivr.net/gh/upupming/docsify-katex@latest/dist/docsify-katex.js"></script> -->
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"
+    />
   </body>
 </html>
