@@ -2,6 +2,7 @@
 .env/
 .ipynb_checkpoints/
 .vscode/
+node_modules/
 
 # ignore latex temp files
 *.aux
