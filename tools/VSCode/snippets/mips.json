@@ -1,0 +1,212 @@
+{
+  "print integer": {
+    "prefix": "printInt",
+    "body": "move\t\t\\$a0, ${1:\\$t0}\t\t\t# \\$a0 = $1\nli\t\t\t\\$v0, 1\t\t\t\t# syscall print int\nsyscall\t\t\t\t\t\t\t# execute",
+    "description": "print integer",
+    "scope": "mips"
+  },
+  "print string 1": {
+    "prefix": "printStr1",
+    "body": "move\t\t\\$a0, ${1:\\$t0}\t\t\t# \\$a0 = $1\nli\t\t\t\\$v0, 4\t\t\t\t# syscall print str\nsyscall\t\t\t\t\t\t\t# execute",
+    "description": "print string move",
+    "scope": "mips"
+  },
+  "print string 2": {
+    "prefix": "printStr2",
+    "body": "la\t\t\t\\$a0, ${1:str}\t\t\t# \\$a0 = $1\nli\t\t\t\\$v0, 4\t\t\t\t# syscall print str\nsyscall\t\t\t\t\t\t\t# execute",
+    "description": "print string la",
+    "scope": "mips"
+  },
+  "read integer": {
+    "prefix": "readInt",
+    "body": "li\t\t\t\\$v0, 5\t\t\t\t# syscall read int\nsyscall\t\t\t\t\t\t\t# execute\nmove\t\t${1:\\$t0}, \\$v0\t\t\t# $1 = \\$v0",
+    "description": "print integer",
+    "scope": "mips"
+  },
+  "allocate memory": {
+    "prefix": "allocMem",
+    "body": "li\t\t\t\\$a0, ${1:4}\t\t\t\t# allocate $1 bytes\nli\t\t\t\\$v0, 9\t\t\t\t# syscall allocate memory\nsyscall\t\t\t\t\t\t\t# execute",
+    "description": "allocate memories",
+    "scope": "mips"
+  },
+  "open file": {
+    "prefix": "openFile",
+    "body": "la\t\t\t\\$a0, ${1:str}\t\t\t# \\$a0 = $1\nli\t\t\t\\$a1, ${2|0,1|}\t\t\t\t# flag $2\nli\t\t\t\\$a2, ${3:0}\t\t\t\t# mode $3\nli\t\t\t\\$v0, 13\t\t\t\t# syscall open file\nsyscall\t\t\t\t\t\t\t# execute\nmove\t\t${4:\\$t0}, \\$v0\t\t\t# copy file descriptor",
+    "description": "open file",
+    "scope": "mips"
+  },
+  "read file": {
+    "prefix": "readFile",
+    "body": "move\t\t\\$a0, ${1:\\$t0}\t\t\t# \\$a0 = $1 read $1\nla\t\t\t\\$a1, ${2:buffer}\t\t\t# \\$a1 = $2\nli\t\t\t\\$a2, ${3:4}\t\t\t\t# $3 bytes to read\nli\t\t\t\\$v0, 14\t\t\t\t# syscall read file\nsyscall\t\t\t\t\t\t\t# execute\nmove\t\t${4:\\$t0}, \\$v0\t\t\t# copy number of bytes read",
+    "description": "read file",
+    "scope": "mips"
+  },
+  "write file": {
+    "prefix": "writeFile",
+    "body": "move\t\t\\$a0, ${1:\\$t0}\t\t\t# \\$a0 = $1 write $1\nla\t\t\t\\$a1, ${2:buffer}\t\t\t# \\$a1 = $2\nli\t\t\t\\$a2, ${3:4}\t\t\t\t# $3 bytes to write\nli\t\t\t\\$v0, 15\t\t\t\t# syscall write file\nsyscall\t\t\t\t\t\t\t# execute\nmove\t\t${4:\\$t0}, \\$v0\t\t\t# copy number of bytes write",
+    "description": "write file",
+    "scope": "mips"
+  },
+  "close file": {
+    "prefix": "closeFile",
+    "body": "move\t\t\\$a0, ${1:\\$t0}\t\t\t# \\$a0 = $1 close $1\nli\t\t\t\\$v0, 16\t\t\t\t# syscall close file\nsyscall\t\t\t\t\t\t\t# execute",
+    "description": "close file",
+    "scope": "mips"
+  },
+  "addi": {
+    "prefix": "addi",
+    "body": "addi\t\t${1:\\$t0}, ${2:\\$t1}, ${3:0}\t\t\t# $1 = $2 + $3\n",
+    "description": "add immediate",
+    "scope": "mips"
+  },
+  "add": {
+    "prefix": "add",
+    "body": "add\t\t\t${1:\\$t0}, ${2:\\$t1}, ${3:\\$t2}\t\t# $1 = $2 + $3\n",
+    "description": "add",
+    "scope": "mips"
+  },
+  "beq": {
+    "prefix": "beq",
+    "body": "beq\t\t\t${1:\\$t0}, ${2:\\$t1}, ${3:target}\t# if $1 == $2 then $3\n",
+    "description": "branch if equal",
+    "scope": "mips"
+  },
+  "bge": {
+    "prefix": "bge",
+    "body": "bge\t\t\t${1:\\$t0}, ${2:\\$t1}, ${3:target}\t# if $1 >= $2 then $3\n",
+    "description": "branch if greater then or equal",
+    "scope": "mips"
+  },
+  "bgt": {
+    "prefix": "bgt",
+    "body": "bgt\t\t\t${1:\\$t0}, ${2:\\$t1}, ${3:target}\t# if $1 > $2 then $3\n",
+    "description": "branch if greater then",
+    "scope": "mips"
+  },
+  "ble": {
+    "prefix": "ble",
+    "body": "ble\t\t\t${1:\\$t0}, ${2:\\$t1}, ${3:target}\t# if $1 <= $2 then $3\n",
+    "description": "branch if less then or equal",
+    "scope": "mips"
+  },
+  "blt": {
+    "prefix": "blt",
+    "body": "blt\t\t\t${1:\\$t0}, ${2:\\$t1}, ${3:target}\t# if $1 < $2 then $3\n",
+    "description": "branch if less then",
+    "scope": "mips"
+  },
+  "bne": {
+    "prefix": "bne",
+    "body": "bne\t\t\t${1:\\$t0}, ${2:\\$t1}, ${3:target}\t# if $1 != $2 then $3\n",
+    "description": "branch if not equal",
+    "scope": "mips"
+  },
+  "b": {
+    "prefix": "b",
+    "body": "b\t\t\t${1:target}\t\t\t\t# branch to $1\n",
+    "description": "branch unconditional",
+    "scope": "mips"
+  },
+  "div": {
+    "prefix": "div",
+    "body": "div\t\t\t${1:\\$t0}, ${2:\\$t1}\t\t\t# $1 / $2\nmflo\t${3:\\$t2}\t\t\t\t\t# $3 = floor($1 / $2) \nmfhi\t${4:\\$t3}\t\t\t\t\t# $4 = $1 mod $2 \n",
+    "description": "divide",
+    "scope": "mips"
+  },
+  "jal": {
+    "prefix": "jal",
+    "body": "jal\t\t\t${1:target}\t\t\t\t# jump to $1 and save position to \\$ra\n",
+    "description": "jump and link",
+    "scope": "mips"
+  },
+  "jr": {
+    "prefix": "jr",
+    "body": "jr\t\t\t${1:\\$ra}\t\t\t\t\t# jump to $1\n",
+    "description": "jump register",
+    "scope": "mips"
+  },
+  "j": {
+    "prefix": "j",
+    "body": "j\t\t\t${1:target}\t\t\t\t# jump to $1\n",
+    "description": "jump",
+    "scope": "mips"
+  },
+  "la": {
+    "prefix": "la",
+    "body": "la\t\t\t${1:\\$t1}, ${2:var1}\t\t\t# \n",
+    "description": "load address",
+    "scope": "mips"
+  },
+  "lb": {
+    "prefix": "lb",
+    "body": "lb\t\t\t${1:\\$t1}, ${2:${3:0}(${4:\\$s1})}\t\t\t# \n",
+    "description": "load byte",
+    "scope": "mips"
+  },
+  "li": {
+    "prefix": "li",
+    "body": "li\t\t\t${1:\\$t1}, $2\t\t\t\t# $1 = $2\n",
+    "description": "load immediate",
+    "scope": "mips"
+  },
+  "lw": {
+    "prefix": "lw",
+    "body": "lw\t\t\t${1:\\$t1}, ${2:${3:0}(${4:\\$s1})}\t\t\t# \n",
+    "description": "load word",
+    "scope": "mips"
+  },
+  "move": {
+    "prefix": "move",
+    "body": "move \t\t${1:\\$t0}, ${2:\\$t1}\t\t\t# $1 = $2",
+    "description": "move",
+    "scope": "mips"
+  },
+  "sb": {
+    "prefix": "sb",
+    "body": "sb\t\t\t${1:\\$t1}, ${2:${3:0}(${4:\\$s1})}\t\t\t# \n",
+    "description": "store byte",
+    "scope": "mips"
+  },
+  "sw": {
+    "prefix": "sw",
+    "body": "sw\t\t\t${1:\\$t1}, ${2:${3:0}(${4:\\$s1})}\t\t\t# \n",
+    "description": "store word",
+    "scope": "mips"
+  },
+  "string": {
+    "prefix": "string",
+    "body": "${1:string}: .asciiz \"$2\"",
+    "description": "string var",
+    "scope": "mips"
+  },
+  "sub": {
+    "prefix": "sub",
+    "body": "sub\t\t\t${1:\\$t0}, ${2:\\$t1}, ${3:\\$t2}\t\t# $1 = $2 - $3\n",
+    "description": "substract",
+    "scope": "mips"
+  },
+  "subi": {
+    "prefix": "subi",
+    "body": "subi\t\t${1:\\$t0}, ${2:\\$t1}, ${3:0}\t\t\t# $1 = $2 - $3\n",
+    "description": "subtract immediate",
+    "scope": "mips"
+  },
+  "var": {
+    "prefix": "var",
+    "body": "${1:var}: .${2|word,ascii,asciiz,byte,double,float,half,space|} $3",
+    "description": "variable",
+    "scope": "mips"
+  },
+  "sll": {
+    "prefix": "sll",
+    "body": "sll\t\t\t${1:\\$t0}, ${2:\\$t1}, ${3:1}\t\t\t# $1 = $2 << $3\n",
+    "description": "shift left logical",
+    "scope": "mips"
+  },
+  "def function": {
+    "prefix": ["def", "fun"],
+    "body": "# FUN ${1:foo}\n# ARGS:\n# \\$a0: ${2:arg1}\n# \\$a1: ${3:arg2}\n# \\$a2: ${4:arg3}\n# RETURN \\$v0: ${5:0}\n$1:\n${6:\taddi\t\t\\$sp, \\$sp, -20\t\t\t# \\$sp -= 20\n\tsw\t\t\t\\$s0, 16(\\$sp)\n\tsw\t\t\t\\$s1, 12(\\$sp)\n\tsw\t\t\t\\$s2, 8(\\$sp)\n\tsw\t\t\t\\$s3, 4(\\$sp)\n\tsw\t\t\t\\$ra, 0(\\$sp)\n\n\t$0\n\n\tlw\t\t\t\\$s0, 16(\\$sp)\n\tlw\t\t\t\\$s1, 12(\\$sp)\n\tlw\t\t\t\\$s2, 8(\\$sp)\n\tlw\t\t\t\\$s3, 4(\\$sp)\n\tlw\t\t\t\\$ra, 0(\\$sp)\n\taddi\t\t\\$sp, \\$sp, 20\t\t\t# \\$sp += 20\n\n\tmove \t\t\\$v0, ${7:\\$zero}\t\t\t# \\$v0 = ${7}\n\tjr\t\t\t\\$ra\t\t\t\t\t# jump to \\$ra\n}\n# END FUN $1",
+    "description": "def function",
+    "scope": "mips"
+  }
+}
