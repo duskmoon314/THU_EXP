@@ -1,0 +1,191 @@
+\documentclass[a4paper]{ctexart}
+\usepackage[left=2cm, right=2cm, top=2.5cm, bottom=2.2cm]{geometry}
+
+\usepackage{fancyhdr}
+\usepackage{graphicx, subfigure}
+\usepackage{minted}
+\setmonofont[]{Fira Code}
+\usepackage[shortlabels]{enumitem}
+\setenumerate{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=0pt, itemindent=4em, leftmargin=0pt, listparindent=2em, label=(\arabic*)}
+\setitemize{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
+\setdescription{itemsep=0pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
+
+\usepackage[sort&compress]{gbt7714}
+\usepackage{hyperref}
+\hypersetup{unicode, colorlinks=true, linkcolor=black, urlcolor=blue}
+\usepackage{booktabs}
+\usepackage{multicol}
+
+% LaTeX template made by duskmoon
+% stored in THU_EXP
+% https://github.com/duskmoon314/THU_EXP
+% 
+% CC BY-SA 4.0
+
+
+\begin{document}
+
+\pagestyle{plain}
+
+\ctexset{
+    section = {
+      format = \zihao{4}\heiti,
+      beforeskip = {2ex},
+      afterskip = {2ex}
+     },
+    subsection = {
+            format = \zihao{5}\heiti,
+            beforeskip = {2ex},
+            afterskip = {1ex},
+        },
+    subsubsection = {
+            format = \zihao{5}\songti,
+            beforeskip = {2ex},
+            afterskip = {1ex},
+        },
+    appendix = {
+            name = {附录}
+        }
+}
+\linespread{1}
+
+\title{\textbf{超声测距系统的设计}}
+\author{作者\textsuperscript{1}，作者\textsuperscript{2}\\
+{\small （1. 班级 学号；2. 班级 学号）}
+}
+\date{}
+\maketitle
+
+\thispagestyle{fancy}
+\chead{电子电路课程设计（2）}
+\lhead{}
+\lfoot{
+    \small{实验时间：x月xx日-x月xx日 \\ 实验地点：清华大学中央主楼903室}
+}
+\renewcommand{\headrulewidth}{1pt}
+
+\setcounter{section}{-1}
+
+\begin{multicols}{2}
+
+    \section{课程任务和实验要求}
+    \subsection{课程任务}
+    《电子电路课程设计》是一门综合应用模拟电路和数字电路理论进行电子系统设计的课程，要求设计并制作具有较完整功能的小型电子系统，它侧重于电子技术理论知识的灵活运用和设计的创新，因此具有系统性、综合性和探索性。课程任务有：
+    \begin{enumerate}
+        \item 掌握一般电路系统的设计思路和方法
+        \item 培养系统观念和工程观念、解决电路实际问题的能力和探索创新精神
+        \item 培养实验研究的总结和表达能力
+    \end{enumerate}
+
+    \subsection{实验要求}
+
+    设计并制作一个超声测距系统。
+
+    \begin{enumerate}
+        \item 基本要求：
+
+              用示波器显示并测量出接收波与发射波的时延，计算出测量距离。
+
+              测量距离大于1m，显示精度为0.01m，数字显示测量结果，并能动态更新。
+
+              测量距离大于2m，显示方式同上。
+
+        \item 提高要求：
+
+              实现测量距离的稳定显示，即显示不闪烁。
+    \end{enumerate}
+
+    \section{实验设计}
+
+    可包含总体方案设计、电路框图设计、电路设计和仿真分析，画出完整的最终电路原理图以及电路中关键元器件的作用说明等。
+
+    完整的电路原理图作为附录，放在文末。
+
+    注意图和表的规范化。
+    \subsection{图的规范化}
+
+    正文内容。图的宽度不超过7.5cm。图中量的意义要在正文中加以解释。
+
+    \begin{figure}[H]
+        \centering
+        \fbox{\rule{0pt}{5cm} \rule{7.5cm}{0pt}}
+        \caption{图题}
+        \label{fig:one_col}
+    \end{figure}
+
+    （\textcolor{blue}{曲线图中横纵坐标的物理量用国际标准符号表示，物理量的符号用斜体字母标注，尽量避免使用中、英文的文字段（单词或缩写字母）来代替符号；单位符号应使用正体字母标注，用“/ ” 与量纲单位隔开（如:V/V；E/a.u.；I/(μA•cm-2)；t/℃），刻度线应在框内侧}）标值的有效数字为3位。图中文字：宋小5）
+
+    \subsection{表格的规范化}
+
+    表格的设计应该科学、明确、简洁，具有自明性。表格应采用三线表，小表宽度小于7.5 cm，大表宽度为12～15cm 。表身中同一栏各行的数值应以个位（或小数点），且有效位数相同。上下左右相邻栏内的文字或数字相同时，应重复写出。表中“量”的意义要在正文中加以解释
+
+    \begin{table}[H]
+        \centering
+        \caption{表题}
+        \label{tab:one_col}
+        \begin{tabular*}{7.5cm}{ccccc}
+            \toprule
+            \\
+            \midrule
+            \\
+            \\
+            \\
+            \\
+            \bottomrule
+        \end{tabular*}
+    \end{table}
+
+    \subsubsection{量和单位的书写规则}
+
+    正文、图表中的变量都要用斜体字母，对于矢量和张量使用黑斜体，pH采用正体；
+
+    注意区分量的下标字母的正斜体：凡量符号和代表变动性数字及坐标轴的字母作下标，采用斜体字母。
+
+    单位符号采用正体字母。注意区分单位符号的大小写：一般单位符号为小写体，来源于人名的单位符号首字母大写。
+
+    \section{实验数据整理和分析}
+
+    整理实验数据或示波器存储下来的图片，分析包含实验现象分析、误差分析等
+
+    \section{实验总结}
+
+    总结实验的完成情况、实验过程中遇到的问题以及解决办法、自己有什么收获等。
+
+    \textcolor{blue}{参考文献多作者的需给出前三作者名，采取姓前，名后，“姓”要全称全大写，“名”要缩写。例如期刊的格式为“作者．文题[文献标识]．期刊名，年，卷（期）：起止页码”，（文献类型标识为：专著M，论文集C，期刊J，学位论文D，报告R，标准S，专利P，工具书K等）。}
+
+    参考文献采用bibtex，使用gbt7714宏包，现默认使用同一目录下的ref.bib文件。例子见下，提交前清注意颜色。
+
+    \nocite{example1,example2,example3,example4,example5,example6,example7}
+
+    \textcolor{blue}{\small{
+            \bibliographystyle{gbt7714-numerical}
+            \bibliography{ref}
+        }}
+
+\end{multicols}
+
+\newpage
+
+\appendix
+
+\section{电路原理图}
+
+电路原理图（包括元件参数）要和实际硬件电路一致且清晰易读。
+
+\section{实验原始数据}
+
+拍照后贴于此。
+
+\section{成本分析}
+
+估算所设计的电路的造价成本：
+
+电阻和电容器统一按每个0.1元计算。
+
+其他元器件的价格可在立创商城（\url{www.szlcsc.com}）,得捷电子（\url{https://www.digikey.com.cn/}），淘宝等处查询。
+
+如果你的设计利用了FPGA，其成本按照资源利用率折算，FPGA的芯片价格为350元，如果资源利用率为10\%，则按照350元*10\%=35元来估算成本。
+
+电源和显示部分的成本统一按20元计算。
+
+\end{document}
